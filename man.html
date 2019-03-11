@@ -33,20 +33,24 @@
 			var size;
 			const myCode = window.location.search.split('code=')[1];
 			var xhttp = new XMLHttpRequest();
-			if (this.readyState == 4 && this.status == 200) {
+			xhttp.onreadystatechange = function() {
+				if (http.readyState == 4 && http.status == 200) {
 					response0 = JSON.parse(xhttp.responseText);
 					document.getElementById("demo").innerHTML = xhttp.responseText;
-			}
+				}
+			};
 			xhttp.open("POST", "https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=5021234476938738681&client_secret=ba8d95f2971b92e4fab1bbc0447adba0cd72c0bb815f84c8d3eef2e264b1a6a3&code="+myCode+"", true);
 			xhttp.send();
 			
 			function getPics(){
 				var pins = new XMLHttpRequest();
-				if (this.readyState == 4 && this.status == 200) {
-					response1 = JSON.parse(pins.responseText);
-					document.getElementById("Picture0").src=response1.data[num0].image.original.url;
-					size = response1.data.length;
-				}
+				pins.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						response1 = JSON.parse(pins.responseText);
+						document.getElementById("Picture0").src=response1.data[num0].image.original.url;
+						size = response1.data.length;
+					}
+				};
 				pins.open("GET", "https://api.pinterest.com/v1/boards/"+document.getElementById('name').innerText+"/pins/?access_token="+response0.access_token+"&fields=id%2Clink%2Cnote%2Curl", true);
 				pins.send();
 			}
