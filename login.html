@@ -19,20 +19,5 @@
 			<center>
 			<a href="https://api.pinterest.com/oauth/?response_type=code&redirect_uri=https://bcverdict.github.io/PinterestWritingApp/man.html&client_id=5021234476938738681&scope=read_public,write_public&state=768uyFys" class="button">Login</a></li>
             </center>
-			<script type ="text/javascript">
-			function loadXMLDoc() {
-				var xhttp = new XMLHttpRequest();
-				xhttp.onreadystatechange = function() {
-					if (this.readyState == 4 && this.status == 200) {
-						document.getElementById("demo").innerHTML = this.responseText;
-					}
-				};
-				let myCode = getQueryVariable("code");
-				xhttp.open("GET", "https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=5021234476938738681&client_secret=ba8d95f2971b92e4fab1bbc0447adba0cd72c0bb815f84c8d3eef2e264b1a6a3&code="+myCode, true);
-				xhttp.send();
-			}
-        </script>
-		
-		
 	</body>
 </html>
