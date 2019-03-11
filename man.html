@@ -35,13 +35,13 @@
 			var xhttp = new XMLHttpRequest();
 			if (this.readyState == 4 && this.status == 200) {
 					response0 = JSON.parse(xhttp.responseText);
+					document.getElementById("demo").innerHTML = response0.access_token;
 			}
 			xhttp.open("POST", "https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=5021234476938738681&client_secret=ba8d95f2971b92e4fab1bbc0447adba0cd72c0bb815f84c8d3eef2e264b1a6a3&code="+myCode+"", true);
 			xhttp.send();
 			
 			function getPics(){
 				var pins = new XMLHttpRequest();
-				document.getElementById("demo").innerHTML = response0.access_token;
 				if (this.readyState == 4 && this.status == 200) {
 					response1 = JSON.parse(pins.responseText);
 					document.getElementById("Picture0").src=response1.data[num0].image.original.url;
