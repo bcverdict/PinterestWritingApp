@@ -41,8 +41,8 @@
 			
 			function getPics(){
 				var pins = new XMLHttpRequest();
+				document.getElementById("demo").innerHTML = response0.access_token;
 				if (this.readyState == 4 && this.status == 200) {
-					document.getElementById("demo").innerHTML = response0.access_token;
 					response1 = JSON.parse(pins.responseText);
 					document.getElementById("Picture0").src=response1.data[num0].image.original.url;
 					size = response1.data.length;
