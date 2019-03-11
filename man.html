@@ -17,10 +17,12 @@
 
 	<body>
 			<center>
-			<a href="https://api.pinterest.com/oauth/?response_type=code&redirect_uri=https://bcverdict.github.io/PinterestWritingApp/man.html&client_id=5021234476938738681&scope=read_public,write_public&state=768uyFys" class="button">Login</a></li>
+			<button class="button" onClick=test() id = "Test">Test</button>
             </center>
+			<div id="demo">
+			</div>
 			<script type ="text/javascript">
-			function loadXMLDoc() {
+			function test() {
 				var xhttp = new XMLHttpRequest();
 				xhttp.onreadystatechange = function() {
 					if (this.readyState == 4 && this.status == 200) {
