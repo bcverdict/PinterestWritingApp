@@ -29,6 +29,7 @@
 			</div>
 			<script type ="text/javascript">
 			var response0;
+			var response1;
 			var size;
 			const myCode = window.location.search.split('code=')[1];
 			var xhttp = new XMLHttpRequest();
@@ -41,6 +42,7 @@
 			function getPics(){
 				var pins = new XMLHttpRequest();
 				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("demo").innerHTML = response0.access_token;
 					response1 = JSON.parse(pins.responseText);
 					document.getElementById("Picture0").src=response1.data[num0].image.original.url;
 					size = response1.data.length;
