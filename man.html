@@ -34,7 +34,7 @@
 			const myCode = window.location.search.split('code=')[1];
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
-				if (http.readyState == 4 && http.status == 200) {
+				if (xhttp.readyState == 4 && xhttp.status == 200) {
 					response0 = JSON.parse(xhttp.responseText);
 					document.getElementById("demo").innerHTML = xhttp.responseText;
 				}
