@@ -57,7 +57,7 @@
 						size = response1.data.length;
 					}
 				};
-				pins.open("GET", "https://api.pinterest.com/v1/boards/"+response2.username+"/"+document.getElementById('name').value+"/pins/?access_token="+response0.access_token+"&fields=image", true);
+				pins.open("GET", "https://api.pinterest.com/v1/boards/nicholas_alvarez/"+document.getElementById('name').value+"/pins/?access_token="+response0.access_token+"&fields=image", true);
 				pins.send();
 			}
 			function Back() {
