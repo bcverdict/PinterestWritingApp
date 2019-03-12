@@ -25,6 +25,7 @@
 			<script type ="text/javascript">
 			var response0;
 			var response1;
+			var response2;
 			var size;
 			var ind = 0;
 			const myCode = window.location.search.split('code=')[1];
@@ -37,6 +38,16 @@
 			xhttp.open("POST", "https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=5021234476938738681&client_secret=ba8d95f2971b92e4fab1bbc0447adba0cd72c0bb815f84c8d3eef2e264b1a6a3&code="+myCode+"", true);
 			xhttp.send();
 			
+			var user = new XMLHttpRequest();
+			user.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					response2 = JSON.parse(this.responseText);
+					document.getElementById("demo").innerHTML = this.responseText;
+				}
+			};
+				user.open("GET", "https://api.pinterest.com/v1/users/me/?access_token="+response0.access_token+"&fields=username", true);
+				user.send();
+			
 			function getPics() {
 				var pins = new XMLHttpRequest();
 				pins.onreadystatechange = function() {
@@ -46,7 +57,7 @@
 						size = response1.data.length;
 					}
 				};
-				pins.open("GET", "https://api.pinterest.com/v1/boards/me/"+document.getElementById('name').value+"/pins/?access_token="+response0.access_token+"&fields=image", true);
+				pins.open("GET", "https://api.pinterest.com/v1/boards/nicholas_alvarez/"+document.getElementById('name').value+"/pins/?access_token="+response0.access_token+"&fields=image", true);
 				pins.send();
 			}
 			function Back() {
