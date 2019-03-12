@@ -44,6 +44,7 @@
 					if (this.readyState == 4 && this.status == 200) {
 						response1 = JSON.parse(this.responseText);
 						document.getElementById("Picture").src=response1.data[ind].image.original.url;
+						size = response1.data.length;
 					}
 				};
 				pins.open("GET", "https://api.pinterest.com/v1/boards/nicholas_alvarez/"+document.getElementById('name').value+"/pins/?access_token="+response0.access_token+"&fields=image", true);
@@ -54,15 +55,15 @@
 					ind--;
 				}
 				else{
-					ind = size0-1;
+					ind = size-1;
 				}
 				document.getElementById("Picture").src=response1.data[ind].image.original.url;
 			}
 			function Next() {
-				if(ind<size0){
+				if(ind<size){
 					ind++;
 				}
-				if(ind==size0){
+				if(ind==size){
 					ind = 0;
 				}
 				document.getElementById("Picture").src=response1.data[ind].image.original.url;
