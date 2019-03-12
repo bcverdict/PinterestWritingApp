@@ -8,11 +8,6 @@
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		
-		<style>
-		body{
-		  background-color: #73E983
-		}
-		</style>
 	</head>
 
 	<body>
@@ -61,6 +56,7 @@
 				else{
 					ind = size0-1;
 				}
+				document.getElementById("Picture").src=response1.data[ind].image.original.url;
 			}
 			function Next() {
 				if(ind<size0){
@@ -69,6 +65,7 @@
 				if(ind==size0){
 					ind = 0;
 				}
+				document.getElementById("Picture").src=response1.data[ind].image.original.url;
 			}
         </script>
 		
