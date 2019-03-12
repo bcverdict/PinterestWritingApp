@@ -22,7 +22,7 @@
             </center>
 			<ul class="pager">
 				<li><button class="button" onClick=Back() id = "Back">Back</button></li>
-				<img src="" id = "Picture0" height = "300" width = "250">
+				<img src="" id = "Picture" height = "300" width = "250">
 				<li><button class="button" onClick=Next() id = "Next">Next</button></li>
 			</ul>
 			<div id="demo">
@@ -31,6 +31,7 @@
 			var response0;
 			var response1;
 			var size;
+			var ind = 0;
 			const myCode = window.location.search.split('code=')[1];
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
@@ -47,16 +48,28 @@
 				pins.onreadystatechange = function() {
 					if (this.readyState == 4 && this.status == 200) {
 					  response1 = JSON.parse(this.responseText);
+					document.getElementById("Picture").src=response1.data[ind].image.original.url;
+					size1 = response1.data.length;
 					}
 				};
 				pins.open("GET", "https://api.pinterest.com/v1/boards/nicholas_alvarez/"+document.getElementById('name').value+"/pins/?access_token="+response0.access_token+"&fields=id%2Clink%2Cnote%2Curl", true);
 				pins.send();
 			}
 			function Back() {
-			
+				if(num0>0){
+					num0--;
+				}
+				else{
+					num0 = size0-1;
+				}
 			}
 			function Next() {
-			
+				if(num0<size0){
+					num0++;
+				}
+				if(num0==size0){
+					num0 = 0;
+				}
 			}
         </script>
 		
