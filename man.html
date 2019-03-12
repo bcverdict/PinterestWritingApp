@@ -49,7 +49,7 @@
 					if (this.readyState == 4 && this.status == 200) {
 						response1 = JSON.parse(this.responseText);
 						document.getElementById("demo").innerHTML = response1.data[ind].image.original.url;
-						document.getElementById("Picture0").src=response1.data[ind].image.original.url;
+						document.getElementById("Picture").src=response1.data[ind].image.original.url;
 					}
 				};
 				pins.open("GET", "https://api.pinterest.com/v1/boards/nicholas_alvarez/"+document.getElementById('name').value+"/pins/?access_token="+response0.access_token+"&fields=id%2Clink%2Cnote%2Curl", true);
