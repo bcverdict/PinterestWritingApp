@@ -42,8 +42,16 @@
 			xhttp.open("POST", "https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=5021234476938738681&client_secret=ba8d95f2971b92e4fab1bbc0447adba0cd72c0bb815f84c8d3eef2e264b1a6a3&code="+myCode+"", true);
 			xhttp.send();
 			
-			
-			
+			function getPins() {
+				var pins = new XMLHttpRequest();
+				pins.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+					  response1 = JSON.parse(this.responseText);
+					}
+				};
+				pins.open("GET", "https://api.pinterest.com/v1/boards/"+document.getElementById('name').value+"/pins/?access_token="+response0.access_token+"&fields=id%2Clink%2Cnote%2Curl", true);
+				pins.send();
+			}
 			function Back() {
 			
 			}
